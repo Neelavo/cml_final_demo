@@ -10,8 +10,12 @@ Original file is located at
 import numpy as np
 import matplotlib.pyplot as plt
 
+print("X:")
+
 x=np.linspace(1,100,30,endpoint=False)
 print(x)
+
+print("Y:")
 
 y=np.zeros(30,dtype=float)
 
@@ -36,7 +40,7 @@ def cost(p):
 
   return c
 
-print(cost(z))
+print("Initial Cost:", cost(z))
 
 def update(m,b,lr,lr2):
   #old implementation
@@ -53,7 +57,9 @@ def update(m,b,lr,lr2):
   B=b-gradb*lr2
   return M,B
 
-print(update(5,100,0.000001,0.0001))
+print("Checking Update Function",update(5,100,0.000001,0.0001))
+
+print("Improving Loss:")
 
 m=-2
 b=-200
@@ -66,7 +72,10 @@ for i in range(300):
   z=m*x
   z=z+b
 
-print(m,b)
+print("************************************************")
+print(" ")
+print("Final Model Predicted Line Stats:")
+print("Slope:" , m , " ;Y intercept" , b)
 
 plt.plot(x,z,color='green')
 plt.scatter(x,y)
